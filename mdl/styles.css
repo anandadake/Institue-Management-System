@@ -235,3 +235,17 @@ div.mdl-layout__header-row > button
 {
 	padding:0 !important;
 }
+
+
+#save,#reset
+{
+	border-radius:60px;
+	width:50%;
+	align-items:center;
+	padding: 10px 20px;
+}
+
+form div,form
+{
+	 text-align: -webkit-center;
+}

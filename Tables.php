@@ -28,9 +28,9 @@
       <link rel="stylesheet" href="mdl/styles.css">
       <!-- Font Awesome css -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     
+     <!-- BOOTSTRAP 
      <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-     
+     -->
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -38,10 +38,10 @@
             <div class="mdl-layout__header-row">
                <span class="mdl-layout-title">Home</span>
                <div class="mdl-layout-spacer"></div>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Others</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Contact</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                   <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                   <i class="material-icons">search</i>
@@ -76,7 +76,6 @@
                      <li class="mdl-menu__item">hello@ptc.com</li>
                      <li class="mdl-menu__item">info@ptc.com</li>
                      <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-                     <li class="mdl-menu__item">Logout</li>
                   </ul>
                </div>
             </header>
@@ -106,8 +105,51 @@
 		 <main class="mdl-layout__content mdl-color--grey-100">
          <div class="mdl-grid demo-content">
 <!-- Start  -->
-
-
+		 <table   class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+               <thead>
+                  <tr>
+                     <th class="mdl-data-table__header--sorted-ascending" >ID</th>
+                     <th class="mdl-data-table__cell--non-numeric">Full Name</th>
+                     <th class="mdl-data-table__cell--non-numeric">Email</th>
+                     <th>Phone No 1</th>
+                     <th>Phone No 2</th>
+                     <th class="mdl-data-table__cell--non-numeric">Address</th>
+                     <th class="mdl-data-table__cell--non-numeric">UserName</th>
+                     <th class="mdl-data-table__cell--non-numeric">Password</th>
+                     <th>userType</th>
+                  </tr>
+               </thead>
+			    <?php 
+                  require 'db.php';
+                  $query = "select * from users order by ID";
+                  $result = mysqli_query($connection,$query);
+                  while($row = mysqli_fetch_array($result) ){
+                   $id = $row['ID'];
+                   $name = $row['Name'];
+                   $Email = $row['Email'];
+                   $PhoneNo1 = $row['PhoneNo1'];
+                   $PhoneNo2 = $row['PhoneNo2'];
+                   $Address = $row['Address'];
+                   $username = $row['userName'];
+                   $userPassword = $row['userPassword'];
+                   $userType = $row['userType'];
+                   
+                  ?>
+               <tbody>
+                  <tr>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='ID_<?php echo $id; ?>'><?php echo $id; ?></td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Name_<?php echo $id; ?>'><?php echo $name; ?></td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Email_<?php echo $id; ?>'><?php echo $Email; ?></td>
+                  <td contentEditable class="edit" id='PhoneNo1_<?php echo $id; ?>'><?php echo $PhoneNo1; ?> </td>
+                  <td contentEditable class="edit" id='PhoneNo2_<?php echo $id; ?>'><?php echo $PhoneNo2; ?> </td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Address_<?php echo $id; ?>'><?php echo $Address; ?></td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='userName_<?php echo $id; ?>'><?php echo $username; ?></td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='userPassword_<?php echo $id; ?>'><?php echo $userPassword; ?></td>
+                  <td class="mdl-data-table__cell--non-numeric edit"><?php echo $userType; ?> </td>
+               </tr>
+               <?php } ?>
+               </tbody>
+            </table>
 <!-- End  -->
         </div>
       </main>
@@ -136,5 +178,34 @@
       
       <script src="./mdl/material.min.js"></script>
       <script src="./mdl/jquery.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $("TD").click(function(){
+         	//$(this).hide();
+         });
+         
+         // Save data
+                $("TD").focusout(function(){
+           alert('Upated successfully'); 
+                 /* $(this).removeClass("editMode");
+                 var id = this.id;
+                 var split_id = id.split("_");
+                 var field_name = split_id[0];
+                 var edit_id = split_id[1];
+                 var value = $(this).text();
+                
+                 $.ajax({
+                  url: 'update.php',
+                  type: 'post',
+                  data: { field:field_name, value:value, id:edit_id },
+                  success:function(response){
+                   alert('Upated successfully'); 
+                  }
+                  
+                 });
+           */
+                });
+         });
+      </script>
    </body>
 </html>

@@ -28,9 +28,9 @@
       <link rel="stylesheet" href="mdl/styles.css">
       <!-- Font Awesome css -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     
+     <!-- BOOTSTRAP 
      <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-     
+     -->
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -38,10 +38,10 @@
             <div class="mdl-layout__header-row">
                <span class="mdl-layout-title">Home</span>
                <div class="mdl-layout-spacer"></div>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Others</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">Contact</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                   <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                   <i class="material-icons">search</i>
@@ -76,7 +76,6 @@
                      <li class="mdl-menu__item">hello@ptc.com</li>
                      <li class="mdl-menu__item">info@ptc.com</li>
                      <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-                     <li class="mdl-menu__item">Logout</li>
                   </ul>
                </div>
             </header>
@@ -106,8 +105,48 @@
 		 <main class="mdl-layout__content mdl-color--grey-100">
          <div class="mdl-grid demo-content">
 <!-- Start  -->
-
-
+<div class="mdl-card mdl-shadow--2dp">
+   <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Register</h2>
+   </div>
+   <div class="mdl-card__supporting-text">
+      <form action="#">
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="firstName" />
+            <label class="mdl-textfield__label" for="firstName">First Name</label>
+            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+         </div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="lastName" />
+            <label class="mdl-textfield__label" for="lastName">Last Name</label>
+            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+         </div>
+         <br>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+            <label class="mdl-textfield__label" for="sample4">Number...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+         </div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+            <label class="mdl-textfield__label" for="sample4">Alt Number...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+         </div><br/>
+         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+         <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+         <span class="mdl-radio__label">male</span>
+         </label>
+         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+         <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+         <span class="mdl-radio__label">Female</span>
+         </label>
+		 <div>
+			<button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
+			<button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
+		</div>
+      </form>
+   </div>
+</div>
 <!-- End  -->
         </div>
       </main>
@@ -133,7 +172,6 @@
         </div>
       </footer>
       </div>
-      
       <script src="./mdl/material.min.js"></script>
       <script src="./mdl/jquery.min.js"></script>
    </body>
