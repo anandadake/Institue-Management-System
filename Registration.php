@@ -38,7 +38,8 @@
             <div class="mdl-layout__header-row">
                <span class="mdl-layout-title">Home</span>
                <div class="mdl-layout-spacer"></div>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button id="home" type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
+			   <div class="mdl-tooltip" for="home"><strong>Go To Home</strong></div>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
@@ -66,7 +67,7 @@
                <img id="tt3" src="images/user.jpg" class="demo-avatar">
                <div class="demo-avatar-dropdown">
                   <span>aadake@ptc.com</span>
-				  <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div><div class="mdl-tooltip" for="tt3">Upload <strong>file.zip</strong></div>
+				  <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div>
                   <div class="mdl-layout-spacer"></div>
                   <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                   <i class="material-icons" role="presentation">arrow_drop_down</i>
