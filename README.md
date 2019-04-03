@@ -2,5 +2,5 @@
 
 ## Development server
 
-This project was generated with Material Design
+This project was developed with Material Design, css, php.
 
