@@ -37,6 +37,8 @@
                <div class="mdl-layout-spacer"></div>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">Others</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">Contact</span></button>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                   <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                   <i class="material-icons">search</i>
@@ -104,53 +106,63 @@
 		 <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-               <!-- content Start  -->
-		 <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-               <thead>
-                  <tr>
-                     <th >ID</th>
-                     <th class="mdl-data-table__cell--non-numeric">Full Name</th>
-                     <th class="mdl-data-table__cell--non-numeric">Email</th>
-                     <th>Phone No 1</th>
-                     <th>Phone No 2</th>
-                     <th class="mdl-data-table__cell--non-numeric">Address</th>
-                     <th class="mdl-data-table__cell--non-numeric">UserName</th>
-                     <th class="mdl-data-table__cell--non-numeric">Password</th>
-                     <th>userType</th>
-                  </tr>
-               </thead>
-			    <?php 
-                  require 'db.php';
-                  $query = "select * from users order by ID";
-                  $result = mysqli_query($connection,$query);
-                  while($row = mysqli_fetch_array($result) ){
-                   $id = $row['ID'];
-                   $name = $row['Name'];
-                   $Email = $row['Email'];
-                   $PhoneNo1 = $row['PhoneNo1'];
-                   $PhoneNo2 = $row['PhoneNo2'];
-                   $Address = $row['Address'];
-                   $username = $row['userName'];
-                   $userPassword = $row['userPassword'];
-                   $userType = $row['userType'];
-                   
-                  ?>
-               <tbody>
-                  <tr>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='ID_<?php echo $id; ?>'><?php echo $id; ?></td>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Name_<?php echo $id; ?>'><?php echo $name; ?></td>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Email_<?php echo $id; ?>'><?php echo $Email; ?></td>
-                  <td contentEditable class="edit" id='PhoneNo1_<?php echo $id; ?>'><?php echo $PhoneNo1; ?> </td>
-                  <td contentEditable class="edit" id='PhoneNo2_<?php echo $id; ?>'><?php echo $PhoneNo2; ?> </td>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Address_<?php echo $id; ?>'><?php echo $Address; ?></td>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='userName_<?php echo $id; ?>'><?php echo $username; ?></td>
-                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='userPassword_<?php echo $id; ?>'><?php echo $userPassword; ?></td>
-                  <td class="mdl-data-table__cell--non-numeric edit"><?php echo $userType; ?> </td>
-               </tr>
-               <?php } ?>
-               </tbody>
-            </table>
-               <!-- content End  -->
+               <!-- Start  -->
+<div class="mdl-card mdl-shadow--2dp">
+   <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">Register</h2>
+   </div>
+   <div class="mdl-card__supporting-text">
+      <form action="#" Method="POST">
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="firstName" />
+            <label class="mdl-textfield__label" for="firstName">First Name</label>
+            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+         </div><br/>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="middleName" />
+            <label class="mdl-textfield__label" for="middleName">Middle Name</label>
+            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+         </div><br/>
+		 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="lastName" />
+            <label class="mdl-textfield__label" for="lastName">Last Name</label>
+            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+         </div>
+         <br/>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="address">
+            <label class="mdl-textfield__label" for="address">Address...</label>
+            <span class="mdl-textfield__error">Input is not a Adress!</span>
+         </div><br/>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="Number">
+            <label class="mdl-textfield__label" for="Number">Number...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+         </div><br/>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="AltNumber">
+            <label class="mdl-textfield__label" for="AltNumber">Alt Number...</label>
+            <span class="mdl-textfield__error">Input is not a number!</span>
+         </div>
+		 <br/>
+		 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+         <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+         <span class="mdl-radio__label">male</span>
+         </label>
+         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+         <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+         <span class="mdl-radio__label">Female</span>
+         </label>
+		 </div><br/>
+		 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			<button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
+			<button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
+		</div>
+      </form>
+   </div>
+</div>
+               <!-- End  -->
             </div>
             <footer class="mdl-mini-footer">
                <div class="mdl-mini-footer__right-section social-icon">
@@ -171,34 +183,5 @@
       <script src="mdl/material.min.js"></script>
 	  <!-- Jquery js script -->
       <script src="mdl/jquery.min.js"></script>
-      <script>
-         $(document).ready(function(){
-         $("TD").click(function(){
-         	//$(this).hide();
-         });
-         
-         // Save data
-                $("TD").focusout(function(){
-           alert('Upated successfully'); 
-                 /* $(this).removeClass("editMode");
-                 var id = this.id;
-                 var split_id = id.split("_");
-                 var field_name = split_id[0];
-                 var edit_id = split_id[1];
-                 var value = $(this).text();
-                
-                 $.ajax({
-                  url: 'update.php',
-                  type: 'post',
-                  data: { field:field_name, value:value, id:edit_id },
-                  success:function(response){
-                   alert('Upated successfully'); 
-                  }
-                  
-                 });
-           */
-                });
-         });
-      </script>
    </body>
 </html>

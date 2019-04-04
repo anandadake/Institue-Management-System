@@ -17,8 +17,6 @@
       <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
       <meta name="msapplication-TileColor" content="#3372DF">
       <link rel="shortcut icon" href="images/favicon.png">
-      <!-- G Font -->
-      <link rel="stylesheet" href="mdl/googleapi.css">
       <!-- MDL -->
       <link rel="stylesheet" href="mdl/material.icon.css">
       <!-- MDL THEAME -->
@@ -26,45 +24,17 @@
       <!-- Custom css -->
       <link rel="stylesheet" href="mdl/styles.css">
       <!-- Font Awesome css -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- BOOTSTRAP  -->
-      <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-     <style type="text/css">
-    #new {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-    
-    #new td,
-    #new th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    
-    #new tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-    
-    #new tr:hover {
-        background-color: #ddd;
-    }
-    
-    #new th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-    }
-</style>
+      <link rel="stylesheet" href="mdl/font-awesome.min.css">
+      <!-- BOOTSTRAP 
+      <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">  -->
+      <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		 <!-- Nav Bar Start here  -->
          <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
             <div class="mdl-layout__header-row">
-               <span class="mdl-layout-title">Home</span>
+               <span class="mdl-layout-title">Institute</span>
                <div class="mdl-layout-spacer"></div>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">Others</span></button>
@@ -89,13 +59,14 @@
                </ul>
             </div>
          </header>
+		 <!-- Nav Bar Ends here  -->
+		 <!-- Side Bar Start here  -->
          <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
             <header class="demo-drawer-header">
-               <img id="tt3" src="images/user.jpg" class="demo-avatar">
+               <img id="tt3" src="images/user.jpg" class="demo-avatar"/>
                <div class="demo-avatar-dropdown">
                   <span>aadake@ptc.com</span>
                   <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div>
-                  <div class="mdl-tooltip" for="tt3">Upload <strong>file.zip</strong></div>
                   <div class="mdl-layout-spacer"></div>
                   <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                   <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -132,9 +103,11 @@
                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
          </div>
+		 <!-- Side Bar Ends here  -->
+		 <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
-               <!-- Start  -->
+               <!-- content Start  -->
 
 <div class="container">
             <form class="well form-horizontal" action="flatregconnect.php" method="POST" name="f1">
@@ -146,17 +119,25 @@
                     <br>
 			   
                     <div class="form-group">
-						<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>
-                        <label class="col-md-4 control-label">Owner Name</label>
                         <div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 								<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="firstName" />
 								<label class="mdl-textfield__label" for="firstName">First Name</label>
 								<span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
 							</div>
+						</div>
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        <div class="col-md-4 inputGroupContainer">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="firstName" />
+								<label class="mdl-textfield__label" for="firstName">Co-Owner Name</label>
+								<span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+							</div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label">Co-Owner Name</label>
                         <div class="col-md-4 inputGroupContainer">
@@ -374,23 +355,19 @@
                   <li><a href="https://instagram.com/ptc" class="fa fa-instagram"></a></li>
                   <li><a href="https://pinterest.com/ptc" class="fa fa-pinterest"></a></li>
                   <li><a href="https://google.com/ptc"    class="fa fa-google"></a></li>
-                  <li><a href="https://github.com/ptc"   class="fa fa-github"></a></li>
+                  <li><a href="https://github.com/ptc"    class="fa fa-github"></a></li>
+                  <li><a href="#" class="fa">Help</a></li>
                   <li></li>
                   <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li><a href="#">Help</a></li>
-                  <li></li>
-                  <li></li>
-                  <li><a href="#">Privacy & Terms</a></li>
+                  <li><a href="#" class="fa">Privacy & Terms</a></li>
                </div>
             </footer>
          </main>
+		 <!-- content outer body Ends here  -->
       </div>
-      <script src="./mdl/material.min.js"></script>
-      <script src="./mdl/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	  <!-- Material Design Lite js script -->
+      <script src="mdl/material.min.js"></script>
+	  <!-- Jquery js script -->
+      <script src="mdl/jquery.min.js"></script>
    </body>
 </html>
