@@ -2481,7 +2481,7 @@ display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:row wrap
 flex-flow:row wrap;-webkit-justify-content:space-between;-ms-flex-pack:justify;
 justify-content:space-between;padding:10px 40px;
 color:#ffffff;
-background-color:#424242
+background-color:#37474f
 }
 .mdl-mini-footer:after{
 content:'';display:block
