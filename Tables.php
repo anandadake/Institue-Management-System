@@ -17,7 +17,6 @@
       <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
       <meta name="msapplication-TileColor" content="#3372DF">
       <link rel="shortcut icon" href="images/favicon.png">
-
       <!-- G Font -->
       <link rel="stylesheet" href="mdl/googleapi.css">
       <!-- MDL -->
@@ -27,10 +26,9 @@
       <!-- Custom css -->
       <link rel="stylesheet" href="mdl/styles.css">
       <!-- Font Awesome css -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <!-- BOOTSTRAP 
-     <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-     -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- BOOTSTRAP  -->
+      <link rel="stylesheet" href="mdl/bootstrap-4.0.0-dist/css/bootstrap.min.css">
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -38,10 +36,10 @@
             <div class="mdl-layout__header-row">
                <span class="mdl-layout-title">Home</span>
                <div class="mdl-layout-spacer"></div>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">Home</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">Others</span></button>
                <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
-               <button type="button" class="mdl-button"><span class="mdl-layout-item">About</span></button>
+               <button type="button" class="mdl-button"><span class="mdl-layout-item">Contact</span></button>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
                   <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
                   <i class="material-icons">search</i>
@@ -66,7 +64,8 @@
                <img id="tt3" src="images/user.jpg" class="demo-avatar">
                <div class="demo-avatar-dropdown">
                   <span>aadake@ptc.com</span>
-				  <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div><div class="mdl-tooltip" for="tt3">Upload <strong>file.zip</strong></div>
+                  <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div>
+                  <div class="mdl-tooltip" for="tt3">Upload <strong>file.zip</strong></div>
                   <div class="mdl-layout-spacer"></div>
                   <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                   <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -76,6 +75,7 @@
                      <li class="mdl-menu__item">hello@ptc.com</li>
                      <li class="mdl-menu__item">info@ptc.com</li>
                      <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+                     <li class="mdl-menu__item">Logout</li>
                   </ul>
                </div>
             </header>
@@ -102,9 +102,9 @@
                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
          </div>
-		 <main class="mdl-layout__content mdl-color--grey-100">
-         <div class="mdl-grid demo-content">
-<!-- Start  -->
+         <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+               <!-- Start  -->
 		 <table   class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                <thead>
                   <tr>
@@ -150,32 +150,30 @@
                <?php } ?>
                </tbody>
             </table>
-<!-- End  -->
-        </div>
-      </main>
-	   <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__right-section social-icon">
-		 
-				<li><a href="https://facebook.com/ptc"  class="fa fa-facebook"></a></li>
-				<li><a href="https://twitter.com/ptc"   class="fa fa-twitter"></a></li>
-				<li><a href="https://instagram.com/ptc" class="fa fa-instagram"></a></li>
-				<li><a href="https://pinterest.com/ptc" class="fa fa-pinterest"></a></li>
-				<li><a href="https://google.com/ptc"    class="fa fa-google"></a></li>
-				<li><a href="https://github.com/ptc"   class="fa fa-github"></a></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li><a href="#">Help</a></li>
-				<li></li>
-				<li></li>
-				<li><a href="#">Privacy & Terms</a></li>
-        </div>
-      </footer>
+               <!-- End  -->
+            </div>
+            <footer class="mdl-mini-footer">
+               <div class="mdl-mini-footer__right-section social-icon">
+                  <li><a href="https://facebook.com/ptc"  class="fa fa-facebook"></a></li>
+                  <li><a href="https://twitter.com/ptc"   class="fa fa-twitter"></a></li>
+                  <li><a href="https://instagram.com/ptc" class="fa fa-instagram"></a></li>
+                  <li><a href="https://pinterest.com/ptc" class="fa fa-pinterest"></a></li>
+                  <li><a href="https://google.com/ptc"    class="fa fa-google"></a></li>
+                  <li><a href="https://github.com/ptc"   class="fa fa-github"></a></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li><a href="#">Help</a></li>
+                  <li></li>
+                  <li></li>
+                  <li><a href="#">Privacy & Terms</a></li>
+               </div>
+            </footer>
+         </main>
       </div>
-      
       <script src="./mdl/material.min.js"></script>
       <script src="./mdl/jquery.min.js"></script>
       <script>
