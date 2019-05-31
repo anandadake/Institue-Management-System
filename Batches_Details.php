@@ -29,11 +29,13 @@
       <link rel="stylesheet" href="mdl/material.cyan-light_blue.min.css">
       <!-- Custom css -->
       <link rel="stylesheet" href="mdl/styles.css">
-      <link rel="stylesheet" href="mdl/jquery/jquery-ui-1.10.2.css">
       <!-- Font Awesome css -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="mdl/font-awesome.min.css">
       <!-- BOOTSTRAP  -->
       <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
+	  <style>
+	  table{width:500px}
+	  </style>
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -103,55 +105,38 @@
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
                <!-- Start  -->
-			<div class="mdl-card mdl-shadow--2dp">
-			<div class="mdl-card__title">
-				<h2 class="mdl-card__title-text">Add Batches</h2>
-			</div>
-			<div class="mdl-card__actions mdl-card--border">
-				<form action="#">
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Name">
-						<label class="mdl-textfield__label" for="batch_Name">Batch Name</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Con">
-						<label class="mdl-textfield__label" for="batch_Con">Batch Conductor</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "-Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch End Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-						<label class="mdl-textfield__label" for="sample4">Batch Fees</label>
-						<span class="mdl-textfield__error">Input is not Valid!</span>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-1">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Date</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-2">
-						<label class="mdl-textfield__label" for="datepicker-2">Batch End Date</label>
-					</div>
-					<br>
-                    <div>
-                        <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
-                        <button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
-                    </div>
-				</form>
-			</div>
-			</div>
+				<div class="mdl-card mdl-shadow--2dp">
+                  <div class="mdl-card__title">
+                     <h2 class="mdl-card__title-text">Batches Details</h2>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+					<a id="save" href="addBatche.php" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">New Branch</a><br><br>
+				<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+               <thead>
+                  <tr>
+                     <th class="mdl-data-table__cell--non-numeric">ID</th>
+                     <th class="mdl-data-table__cell--non-numeric">Name</th>
+                  </tr>
+               </thead>
+			    <?php 
+                  require 'db.php';
+                  $query = "select * from Batches order by ID";
+                  $result = mysqli_query($connection,$query);
+                  while($row = mysqli_fetch_array($result) ){
+                   $id = $row['id'];
+                   $name = $row['name'];
+                   
+                  ?>
+               <tbody>
+                  <tr>
+                  <td class="mdl-data-table__cell--non-numeric edit" id='ID_<?php echo $id; ?>'><?php echo $id; ?></td>
+                  <td contentEditable class="mdl-data-table__cell--non-numeric edit" id='Name_<?php echo $id; ?>'><?php echo $name; ?></td>
+               </tr>
+               <?php } ?>
+               </tbody>
+            </table>
+				  </div>
+				</div>
                <!-- End  -->
             </div>
             <footer class="mdl-mini-footer">
@@ -173,18 +158,6 @@
       <script src="mdl/material.min.js"></script>
 	  <!-- Jquery js script -->
       <script src="mdl/jquery.min.js"></script>
-      <script src="mdl/Custom.js"></script>
-      <script src="mdl/jquery/jquery-1.10.2.js"></script>
-      <script src="mdl/jquery/jquery-ui-1.10.2.js"></script>
-		<script>
-         $(function() {
-            $( "#datepicker-1" ).datepicker({gotoCurrent: true});
-            $( "#datepicker-2" ).datepicker();
-			$("TD").dclick(function {
-				$("TD").attr("contentEditable","true");
-				$("TD").click();
-			});
-         });
-      </script>
+      <script src="mdl/bootstrap340/3.4.0.bootstrap.min.js"></script>
    </body>
 </html>

@@ -1,7 +1,56 @@
 
-html, body {
-  font-family: 'Roboto', 'Helvetica', sans-serif;
+[bgimage]{
+	background-image:url(../images/login-back.jpg); 
+	background-repeat:no-repeat; 
+	background-size:2000px 1000px; 
+	color:#333;
 }
+.container-login {
+  width: 100%;  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.backgradient{
+	
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.wrap-login {
+  width: 30%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 60px 80px;
+  justify-content: center;
+}
+.login-form-title {
+  font-family: Poppins-Bold;
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+.input-group span{cursor:pointer}
+
 .demo-avatar {
   width: 48px;
   height: 48px;
@@ -89,7 +138,8 @@ html, body {
 }
 
 .demo-content {
-  max-width: 1080px;
+  max-width: 100%;
+  justify-content: center;
 }
 
 .demo-charts {
@@ -202,32 +252,32 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 /* start social icon */
 .social-icon
-    {
-        
-        padding: 0;
-        margin: 110;
-        top: 20px;
-    }
+{
+    
+    padding: 0;
+    margin: 110;
+    top: 20px;
+}
 .social-icon li
-    {
-        display: inline-block;
-        list-style: none;
-    }
+{
+    display: inline-block;
+    list-style: none;
+}
 .social-icon li a
-    {
-        color: #eceff1;
-        font-size: 13px;
-        text-decoration: none;
-        transition: all 0.4s ease-in-out;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-    }
+{
+    color: #eceff1;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
 .social-icon li a:hover
-    {
-        background: #263238;
-    }
+{
+    background: light blue;
+}
 /* end social icon */
 
 

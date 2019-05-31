@@ -1,10 +1,4 @@
 <!doctype html>
-<?php 
-   session_start();
-   if (!isset($_SESSION['userName'])) { 
-     header("Location: http://localhost/Institute/login.php");
-   }
-   ?>
 <html lang="en">
    <head>
       <meta charset="utf-8">
@@ -68,96 +62,71 @@
                </ul>
             </div>
          </header>
-		 <!-- Nav Bar Ends here  -->
-		 <!-- Side Bar Start here  -->
-         <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-            <header class="demo-drawer-header">
-               <img id="tt3" src="images/user.jpg" class="demo-avatar"/>
-               <div class="demo-avatar-dropdown">
-                  <span><?php if(isset($_COOKIE["userName"])){echo $_COOKIE["userName"];} ?></span>
-                  <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div>
-                  <div class="mdl-layout-spacer"></div>
-                  <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons" role="presentation">arrow_drop_down</i>
-                  <span class="visuallyhidden">Accounts</span>
-                  </button>
-                  <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                     <li class="mdl-menu__item">hello@ptc.com</li>
-                     <li class="mdl-menu__item">info@ptc.com</li>
-                     <li class="mdl-menu__item"><a href="logout.php">Logout</a></li>
-                  </ul>
-               </div>
-            </header>
-            <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-               <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-               <a class="mdl-navigation__link" href="Revenue_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">monetization_on</i>Revenue</a>
-               <a class="mdl-navigation__link" href="Enquiry_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Enquiry</a>
-               <a class="mdl-navigation__link" href="Addmission_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Addmission</a>
-               <a class="mdl-navigation__link" href="Staff_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>Staff Details</a>
-               <a class="mdl-navigation__link" href="Branches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">location_city</i>Branches Details</a>
-               <a class="mdl-navigation__link" href="Batches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">school</i>Batches Details</a>
-               <a class="mdl-navigation__link" href="Cource_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>Cource Details</a>
-               <a class="mdl-navigation__link" href="Finance_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i>Finance Details</a>
-               <a class="mdl-navigation__link" href="Reference_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">wc</i>Reference Details</a>
-               <div class="mdl-layout-spacer"></div>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
-            </nav>
-         </div>
-		 <!-- Side Bar Ends here  -->
-		 <!-- content outer body Start here  -->
+         <!-- Nav Bar Ends here  -->
+
+         <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
                <!-- Start  -->
                   <div class="mdl-card__title">
-                     <h2 class="mdl-card__title-text">Branch's Details</h2>
+                     <h2 class="mdl-card__title-text">Enquiry Details</h2>
                   </div>
                   <div class="mdl-card__actions">
                      <a id="save" href="addEnquiry.php" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Add New Enquiry</a><br><br>
                      <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                            <tr>
+                              <th>En_ID</th>
                               <th>Branch_ID</th>
-                              <th>Branch_Name</th>
-                              <th>Branch_Date</th>
-                              <th>Contact1</th>
-                              <th>Contact2</th>
-                              <th>Administrator_Name</th>
+                              <th>FullName</th>
+                              <th>En_Date</th>
+                              <th>Course_ID</th>
+                              <th>Gender</th>
                               <th>Email</th>
-                              <th>Username</th>
-                              <th>Password</th>
+                              <th>Contact_No1</th>
+                              <th>Contact_No2</th>
+                              <th>Enquiry_Status</th>
+                              <th>Qualification</th>
+                              <th>Reference_ID</th>
                            </tr>
                         </thead>
                         <?php 
                            require 'db.php';
-                           $query = "select * from Branch_Details order by Branch_ID";
+                           $query = "select * from enquiry_details order by En_ID";
                            $result = mysqli_query($connection,$query);
                            if (!$result) {
                            printf("Error: %s\n", mysqli_error($connection));
                            exit();
                            }
                            while($row = mysqli_fetch_array($result) ){
+                            $En_ID = $row['En_ID'];
                             $Branch_ID = $row['Branch_ID'];
-                            $Branch_Name = $row['Branch_Name'];
-                            $Branch_Date = $row['Branch_Date'];
+                            $FullName = $row['FullName'];
+                            $En_Date = $row['En_Date'];
+                            $Course_ID = $row['Course_ID'];
+                            $Gender = $row['Gender'];
                             $Email = $row['Email'];
-                            $Contact1 = $row['Contact1'];
-                            $Contact2 = $row['Contact2'];
-                            $Administrator_Name = $row['Administrator_Name'];
-                            $Username = $row['Username'];
-                            $Password = $row['Password'];
+                            $Contact_No1 = $row['Contact_No1'];
+                            $Contact_No2 = $row['Contact_No2'];
+                            $Enquiry_Status = $row['Enquiry_Status'];
+                            $Qualification = $row['Qualification'];
+                            $Reference_ID = $row['Reference_ID'];
                             
                            ?>
                         <tbody>
                            <tr>
+                              <td id='En_ID-<?php echo $En_ID; ?>'><?php echo $En_ID; ?></td>
                               <td id='Branch_ID-<?php echo $Branch_ID; ?>'><?php echo $Branch_ID; ?></td>
-                              <td id='Branch_Name-<?php echo $Branch_Name; ?>'><?php echo $Branch_Name; ?></td>
-                              <td id='Branch_Date-<?php echo $Branch_Date; ?>'><?php echo $Branch_Date; ?></td>
-                              <td id='Contact1-<?php echo $Contact1; ?>'><?php echo $Contact1; ?></td>
-                              <td id='Contact2-<?php echo $Contact2; ?>'><?php echo $Contact2; ?></td>
-                              <td id='Administrator_Name-<?php echo $Administrator_Name; ?>'><?php echo $Administrator_Name; ?></td>
+                              <td id='FullName-<?php echo $FullName; ?>'><?php echo $FullName; ?></td>
+                              <td id='En_Date-<?php echo $En_Date; ?>'><?php echo $En_Date; ?></td>
+                              <td id='Course_ID-<?php echo $Course_ID; ?>'><?php echo $Course_ID; ?></td>
+                              <td id='Gender-<?php echo $Gender; ?>'><?php echo $Gender; ?></td>
                               <td id='Email-<?php echo $Email; ?>'><?php echo $Email; ?></td>
-                              <td id='Username-<?php echo $Username; ?>'><?php echo $Username; ?></td>
-                              <td id='Password-<?php echo $Password; ?>'><?php echo $Password; ?></td>
+                              <td id='Contact_No1-<?php echo $Contact_No1; ?>'><?php echo $Contact_No1; ?></td>
+                              <td id='Contact_No2-<?php echo $Contact_No2; ?>'><?php echo $Contact_No2; ?></td>
+                              <td id='Enquiry_Status-<?php echo $Enquiry_Status; ?>'><?php echo $Enquiry_Status; ?></td>
+                              <td id='Qualification-<?php echo $Qualification; ?>'><?php echo $Qualification; ?></td>
+                              <td id='Reference_ID-<?php echo $Reference_ID; ?>'><?php echo $Reference_ID; ?></td>
                            </tr>
                            <?php } ?>
                         </tbody>
@@ -181,14 +150,15 @@
       </main>
       <!-- content outer body Ends here  -->
       </div>
-      <!-- Jquery js script -->
-      <script src="mdl/jquery.min.js"></script>
-	  <!-- Jquery js script For Table -->
-      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
       <!-- Material Design Lite js script -->
       <script src="mdl/material.min.js"></script>
       <script src="mdl/bootstrap340/3.4.0.bootstrap.min.js"></script>
+      <!-- Jquery js script -->
+      <script src="mdl/jquery.min.js"></script>
+      <script src="mdl/bootstrap340/3.4.0.bootstrap.min.js"></script>
+	  <!-- Jquery js script For Table -->
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
       <script>
 		$(document).ready( function () {

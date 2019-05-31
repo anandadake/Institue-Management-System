@@ -1,10 +1,4 @@
 <!doctype html>
-<?php 
-   session_start();
-   if (!isset($_SESSION['userName'])) { 
-     header("Location: http://localhost/Institute/login.php");
-   }
-   ?>
 <html lang="en">
    <head>
       <meta charset="utf-8">
@@ -29,9 +23,8 @@
       <link rel="stylesheet" href="mdl/material.cyan-light_blue.min.css">
       <!-- Custom css -->
       <link rel="stylesheet" href="mdl/styles.css">
-      <link rel="stylesheet" href="mdl/jquery/jquery-ui-1.10.2.css">
       <!-- Font Awesome css -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="mdl/font-awesome.min.css">
       <!-- BOOTSTRAP  -->
       <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
    </head>
@@ -103,55 +96,8 @@
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
                <!-- Start  -->
-			<div class="mdl-card mdl-shadow--2dp">
-			<div class="mdl-card__title">
-				<h2 class="mdl-card__title-text">Add Batches</h2>
-			</div>
-			<div class="mdl-card__actions mdl-card--border">
-				<form action="#">
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Name">
-						<label class="mdl-textfield__label" for="batch_Name">Batch Name</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Con">
-						<label class="mdl-textfield__label" for="batch_Con">Batch Conductor</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "-Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch End Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-						<label class="mdl-textfield__label" for="sample4">Batch Fees</label>
-						<span class="mdl-textfield__error">Input is not Valid!</span>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-1">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Date</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-2">
-						<label class="mdl-textfield__label" for="datepicker-2">Batch End Date</label>
-					</div>
-					<br>
-                    <div>
-                        <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
-                        <button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
-                    </div>
-				</form>
-			</div>
-			</div>
+			   
+			   
                <!-- End  -->
             </div>
             <footer class="mdl-mini-footer">
@@ -173,18 +119,5 @@
       <script src="mdl/material.min.js"></script>
 	  <!-- Jquery js script -->
       <script src="mdl/jquery.min.js"></script>
-      <script src="mdl/Custom.js"></script>
-      <script src="mdl/jquery/jquery-1.10.2.js"></script>
-      <script src="mdl/jquery/jquery-ui-1.10.2.js"></script>
-		<script>
-         $(function() {
-            $( "#datepicker-1" ).datepicker({gotoCurrent: true});
-            $( "#datepicker-2" ).datepicker();
-			$("TD").dclick(function {
-				$("TD").attr("contentEditable","true");
-				$("TD").click();
-			});
-         });
-      </script>
    </body>
 </html>

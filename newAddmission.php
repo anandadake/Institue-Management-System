@@ -33,6 +33,13 @@
       <link rel="stylesheet" href="mdl/font-awesome.min.css">
       <!-- BOOTSTRAP  -->
       <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
+      <style>
+         .btn{outline: none !important;border: none;}
+         .btn-primary{background: #57b846!important;}
+         .btn-primary:hover{background: #5ff850!important;}
+		 #save,#reset{width:100%!important;}
+		 input{color:#333}
+      </style>
    </head>
    <body>
       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -102,91 +109,132 @@
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
                <!-- Start  -->
-               <div class="mdl-card mdl-shadow--2dp">
-                  <div class="mdl-card__title">
-                     <h2 class="mdl-card__title-text">Addmission Form</h2>
-                  </div>
-                  <div class="mdl-card__supporting-text">
-                     <form action="#">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-							<select class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<option>Cource</option>
-								<option >C</option>
-								<option>CPP</option>
-								<option>JAVA</option>
-								<option>PHP</option>
-							</select>
+         <div class="wrap-login">
+            <form class="login-form " METHOD="POST" action="newAddmissionBAckEnd.php">
+			            <div class="form-group">
+                        <label class="col-md-4 control-label">Course</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="Course" required value="Course">
+                                    <option>Select Course</option>
+                                    <option Value="">C </option>
+                                    <option Value="">CPP </option>
+                                    <option Value="">JAVA</option>
+                                    <option Value="">PHP</option>
+                                    <option Value="">Angular</option>
+                                    <option Value="">UNIX</option>
+                                </select>
+                            </div>
                         </div>
-                        <br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" id="TotalFee" value="10000" disabled />
-                           <label class="mdl-textfield__label" for="TotalFee">Total : </label>
+                    </div><br>
+			            <div class="form-group">
+                        <label class="col-md-4 control-label">Branch</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="Branch" required value="Branch">
+                                    <option>Select Branch</option>
+                                    <option Value="">Pune</option>
+                                    <option Value="">Mumbai </option>
+                                </select>
+                            </div>
                         </div>
-						<br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="PaidFee">
-                           <label class="mdl-textfield__label" for="PaidFee">Paid :</label>
-                           <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                        <div >
+                           <input id="total"class="mdl-textfield__input" type="text" disabled value="1000" />
                         </div>
-						<br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" id="RemFee" value="0000" disabled />
-                           <label class="mdl-textfield__label" for="RemFee">Remaining :</label>
+                        <div >
+                           <input id="paid"class="mdl-textfield__input" type="text" " />
                         </div>
-						<br>
+                        <div>
+                           <input id="rem"class="mdl-textfield__input" type="text"  disabled value="500"/>
+                        </div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                            <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="fullName" />
                            <label class="mdl-textfield__label" for="fullName">Full Name</label>
                            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
                         </div>
-                        <br>
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-                        <span class="mdl-radio__label">Male</span>
-                        </label>
-                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-                        <span class="mdl-radio__label">Female</span>
-                        </label>
 						<br>
-						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="email"  id="lastName" />
-                           <label class="mdl-textfield__label" for="lastName">Email</label>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+							<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+							<span class="mdl-radio__label">Male</span>
+						</label>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+							<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+							<span class="mdl-radio__label">Female</span>
+						</label>
+						<br>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                           <input class="mdl-textfield__input" type="Date"  id="EmailEmail" />
+                           <label class="mdl-textfield__label" for="Email">DOB</label>
+                           <span class="mdl-textfield__error">Please Enter Valid DOB!</span>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                           <input class="mdl-textfield__input" type="email"  id="EmailEmail" />
+                           <label class="mdl-textfield__label" for="Email">Email</label>
                            <span class="mdl-textfield__error">Please Enter Valid email!</span>
                         </div>
                         <br>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="Number">
-                           <label class="mdl-textfield__label" for="Number">Number...</label>
+                           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="no1">
+                           <label class="mdl-textfield__label" for="no1">Number...</label>
                            <span class="mdl-textfield__error">Input is not a number!</span>
                         </div>
 						<br>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="Number1">
-                           <label class="mdl-textfield__label" for="Number1">Alt Number...</label>
+                           <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="no2">
+                           <label class="mdl-textfield__label" for="no2">Alt Number...</label>
                            <span class="mdl-textfield__error">Input is not a number!</span>
                         </div>
                         <br/>
+						<div class="mdl-textfield mdl-js-textfield">
+						<textarea class="mdl-textfield__input" type="text" rows= "3" id="address" ></textarea>
+						<label class="mdl-textfield__label" for="address">address...</label>
+						</div>
+                        <br>
+			            <div class="form-group">
+                        <label class="col-md-4 control-label">PayMode</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                <select name="Mode" required value="mode">
+                                    <option>Select Mode</option>
+                                    <option Value="">Cash</option>
+                                    <option Value="">cheque </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+					<br>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="Education" />
-                           <label class="mdl-textfield__label" for="Education">Education</label>
+                           <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="Status1" />
+                           <label class="mdl-textfield__label" for="Status1">Status 1</label>
                            <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
                         </div>
 						<br>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text"  id="address" />
-                           <label class="mdl-textfield__label" for="address">address</label>
-                           <span class="mdl-textfield__error">Please Enter Valid address!</span>
+                           <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="Status2" />
+                           <label class="mdl-textfield__label" for="Status2">Status 2</label>
+                           <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+                        </div>
+						<br>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                           <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="Status3" />
+                           <label class="mdl-textfield__label" for="Status3">Status 3</label>
+                           <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
+                        </div>
+						<br>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						
                         </div>
 						<br>
                         <div>
-                           <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
+                           <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Add Addmission</button>
                            <button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
                         </div>
-                     </form>
-                  </div>
-               </div>
-
+            </form>
+         </div>
                <!-- End  -->
             </div>
             <footer class="mdl-mini-footer">
@@ -208,13 +256,10 @@
       <script src="mdl/material.min.js"></script>
 	  <!-- Jquery js script -->
       <script src="mdl/jquery.min.js"></script>
-	  <script>
-		$("#PaidFee").change(function(){
-			var Total = parseInt($("#TotalFee").val());
-			var Paid = parseInt($("#PaidFee").val());
-			var Rem = Total - Paid;
-			$('#RemFee').trigger('click');
-			$("#RemFee").val(parseInt(Rem));
+      <script src="mdl/bootstrap340/3.4.0.bootstrap.min.js"></script>
+      <script>
+		$("#total").on("input",function(){
+		$("rem").val(parseInt($("#Total").val())-parseInt($("#paid").val()));
 		});
 	  </script>
    </body>

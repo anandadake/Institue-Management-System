@@ -68,8 +68,8 @@
                </ul>
             </div>
          </header>
-		 <!-- Nav Bar Ends here  -->
-		 <!-- Side Bar Start here  -->
+         <!-- Nav Bar Ends here  -->
+         <!-- Side Bar Start here  -->
          <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
             <header class="demo-drawer-header">
                <img id="tt3" src="images/user.jpg" class="demo-avatar"/>
@@ -103,61 +103,94 @@
                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
          </div>
-		 <!-- Side Bar Ends here  -->
-		 <!-- content outer body Start here  -->
+         <!-- Side Bar Ends here  -->
+         <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
             <div class="mdl-grid demo-content">
                <!-- Start  -->
                   <div class="mdl-card__title">
-                     <h2 class="mdl-card__title-text">Branch's Details</h2>
+                     <h2 class="mdl-card__title-text">Admission's Details</h2>
                   </div>
                   <div class="mdl-card__actions">
-                     <a id="save" href="addEnquiry.php" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Add New Enquiry</a><br><br>
+                     <a id="save" href="newAddmission.php" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">New Admission</a><br><br>
                      <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                            <tr>
+                              <th>Add_ID</th>
                               <th>Branch_ID</th>
-                              <th>Branch_Name</th>
-                              <th>Branch_Date</th>
+                              <th>FullName</th>
+                              <th>DOB</th>
+                              <th>DOA</th>
+                              <th>Address</th>
+                              <th>Gender</th>
+                              <th>Email</th>
                               <th>Contact1</th>
                               <th>Contact2</th>
-                              <th>Administrator_Name</th>
-                              <th>Email</th>
-                              <th>Username</th>
-                              <th>Password</th>
+                              <th>Qualification</th>
+                              <th>Cource_ID</th>
+                              <th>Total_Course_Fees</th>
+                              <th>Paid_Fees</th>
+                              <th>Next_Installment_Date</th>
+                              <th>Payment_Mode</th>
+                              <th>Staff_ID</th>
+                              <th>Batch_ID</th>
+                              <th>Photo</th>
+                              <th>Document</th>
                            </tr>
                         </thead>
                         <?php 
                            require 'db.php';
-                           $query = "select * from Branch_Details order by Branch_ID";
+                           $query = "select * from Admission order by Add_ID";
                            $result = mysqli_query($connection,$query);
                            if (!$result) {
                            printf("Error: %s\n", mysqli_error($connection));
                            exit();
                            }
                            while($row = mysqli_fetch_array($result) ){
+                            $Add_ID = $row['Add_ID'];
                             $Branch_ID = $row['Branch_ID'];
-                            $Branch_Name = $row['Branch_Name'];
-                            $Branch_Date = $row['Branch_Date'];
+                            $FullName = $row['FullName'];
+                            $DOB = $row['DOB'];
+                            $DOA = $row['DOA'];
+                            $Address = $row['Address'];
+                            $Gender = $row['Gender'];
                             $Email = $row['Email'];
-                            $Contact1 = $row['Contact1'];
-                            $Contact2 = $row['Contact2'];
-                            $Administrator_Name = $row['Administrator_Name'];
-                            $Username = $row['Username'];
-                            $Password = $row['Password'];
+                            $Contact1 = $row['Contact_No1'];
+                            $Contact2 = $row['Contact_No2'];
+                            $Qualification = $row['Qualification'];
+                            $Cource_ID = $row['Cource_ID'];
+                            $Total_Course_Fees = $row['Total_Course_Fees'];
+                            $Paid_Fees = $row['Paid_Fees'];
+                            $Next_Installment_Date = $row['Next_Installment_Date'];
+                            $Payment_Mode = $row['Payment_Mode'];
+                            $Staff_ID = $row['Staff_ID'];
+                            $Batch_ID = $row['Batch_ID'];
+                            $Photo = $row['Photo'];
+                            $Document = $row['Document'];
                             
                            ?>
                         <tbody>
                            <tr>
+                              <td id='Add_ID-<?php echo $Add_ID; ?>'><?php echo $Add_ID; ?></td>
                               <td id='Branch_ID-<?php echo $Branch_ID; ?>'><?php echo $Branch_ID; ?></td>
-                              <td id='Branch_Name-<?php echo $Branch_Name; ?>'><?php echo $Branch_Name; ?></td>
-                              <td id='Branch_Date-<?php echo $Branch_Date; ?>'><?php echo $Branch_Date; ?></td>
+                              <td id='FullName-<?php echo $FullName; ?>'><?php echo $FullName; ?></td>
+                              <td id='DOB-<?php echo $DOB; ?>'><?php echo $DOB; ?></td>
+                              <td id='DOA-<?php echo $DOA; ?>'><?php echo $DOA; ?></td>
+                              <td id='Address-<?php echo $Address; ?>'><?php echo $Address; ?></td>
+                              <td id='Gender-<?php echo $Gender; ?>'><?php echo $Gender; ?></td>
+                              <td id='Email-<?php echo $Email; ?>'><?php echo $Email; ?></td>
                               <td id='Contact1-<?php echo $Contact1; ?>'><?php echo $Contact1; ?></td>
                               <td id='Contact2-<?php echo $Contact2; ?>'><?php echo $Contact2; ?></td>
-                              <td id='Administrator_Name-<?php echo $Administrator_Name; ?>'><?php echo $Administrator_Name; ?></td>
-                              <td id='Email-<?php echo $Email; ?>'><?php echo $Email; ?></td>
-                              <td id='Username-<?php echo $Username; ?>'><?php echo $Username; ?></td>
-                              <td id='Password-<?php echo $Password; ?>'><?php echo $Password; ?></td>
+                              <td id='Qualification-<?php echo $Qualification; ?>'><?php echo $Qualification; ?></td>
+                              <td id='Cource_ID-<?php echo $Cource_ID; ?>'><?php echo $Cource_ID; ?></td>
+                              <td id='Total_Course_Fees-<?php echo $Total_Course_Fees; ?>'><?php echo $Total_Course_Fees; ?></td>
+                              <td id='Paid_Fees-<?php echo $Paid_Fees; ?>'><?php echo $Paid_Fees; ?></td>
+                              <td id='Next_Installment_Date-<?php echo $Next_Installment_Date; ?>'><?php echo $Next_Installment_Date; ?></td>
+                              <td id='Payment_Mode-<?php echo $Payment_Mode; ?>'><?php echo $Payment_Mode; ?></td>
+                              <td id='Staff_ID-<?php echo $Staff_ID; ?>'><?php echo $Staff_ID; ?></td>
+                              <td id='Batch_ID-<?php echo $Batch_ID; ?>'><?php echo $Batch_ID; ?></td>
+                              <td id='Photo-<?php echo $Photo; ?>'><?php echo $Photo; ?></td>
+                              <td id='Document-<?php echo $Document; ?>'><?php echo $Document; ?></td>
                            </tr>
                            <?php } ?>
                         </tbody>

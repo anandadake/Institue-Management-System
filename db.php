@@ -3,6 +3,6 @@
 ======================================================= -->
 <?php 
 
-$connection = mysqli_connect("localhost","root","","college");
+$connection = mysqli_connect("localhost","root","","Institute");
 
 ?>

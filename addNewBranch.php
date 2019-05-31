@@ -1,4 +1,10 @@
 <!doctype html>
+<?php 
+   session_start();
+   if (!isset($_SESSION['userName'])) { 
+     header("Location: http://localhost/Institute/login.php");
+   }
+   ?>
 <html lang="en">
    <head>
       <meta charset="utf-8">
@@ -62,7 +68,7 @@
             <header class="demo-drawer-header">
                <img id="tt3" src="images/user.jpg" class="demo-avatar"/>
                <div class="demo-avatar-dropdown">
-                  <span>aadake@ptc.com</span>
+                  <span><?php if(isset($_COOKIE["userName"])){echo $_COOKIE["userName"];} ?></span>
                   <div class="mdl-tooltip" for="tt3">Upload <strong>Profile</strong></div>
                   <div class="mdl-layout-spacer"></div>
                   <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -72,30 +78,21 @@
                   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
                      <li class="mdl-menu__item">hello@ptc.com</li>
                      <li class="mdl-menu__item">info@ptc.com</li>
-                     <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
-                     <li class="mdl-menu__item">Logout</li>
+                     <li class="mdl-menu__item"><a href="logout.php">Logout</a></li>
                   </ul>
                </div>
             </header>
             <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">attach_money</i>Revenue</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Inquiry</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Addmission</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>Staff Details</a>
-               <a class="mdl-navigation__link" href="Branches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Branches Details</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Batches Details</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>Cource Details</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i>Finance Details</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Reference Details</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
-               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+               <a class="mdl-navigation__link" href="index.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+               <a class="mdl-navigation__link" href="Revenue_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">monetization_on</i>Revenue</a>
+               <a class="mdl-navigation__link" href="Enquiry_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Enquiry</a>
+               <a class="mdl-navigation__link" href="Addmission_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Addmission</a>
+               <a class="mdl-navigation__link" href="Staff_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>Staff Details</a>
+               <a class="mdl-navigation__link" href="Branches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">location_city</i>Branches Details</a>
+               <a class="mdl-navigation__link" href="Batches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">school</i>Batches Details</a>
+               <a class="mdl-navigation__link" href="Cource_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>Cource Details</a>
+               <a class="mdl-navigation__link" href="Finance_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i>Finance Details</a>
+               <a class="mdl-navigation__link" href="Reference_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">wc</i>Reference Details</a>
                <div class="mdl-layout-spacer"></div>
                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
             </nav>
@@ -103,9 +100,9 @@
 		 <!-- Side Bar Ends here  -->
 		 <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
-            <div class="mdl-grid demo-content">
+            <div class="mdl-grid demo-content ">
                <!-- Start  -->
-               <div class="mdl-card mdl-shadow--2dp">
+               <div class="mdl-card mdl-shadow--2dp container-login">
                   <div class="mdl-card__title">
                      <h2 class="mdl-card__title-text">New Branch</h2>
                   </div>
@@ -123,11 +120,10 @@
                            <span class="mdl-textfield__error">Please Enter Valid Details!</span>
                         </div>
                         <br>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                           <input class="mdl-textfield__input" type="text"  id="lastName" />
-                           <label class="mdl-textfield__label" for="lastName">address</label>
-                           <span class="mdl-textfield__error">Please Enter Valid address!</span>
-                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+						<textarea class="mdl-textfield__input" type="text" rows= "3" id="address" ></textarea>
+						<label class="mdl-textfield__label" for="address">address...</label>
+						</div>
                         <br>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
@@ -183,8 +179,8 @@
                   <li><a href="https://pinterest.com/ptc" class="fa fa-pinterest"></a></li>
                   <li><a href="https://google.com/ptc"    class="fa fa-google"></a></li>
                   <li><a href="https://github.com/ptc"   class="fa fa-github"></a></li>
-                  <li><a href="#">Help</a></li>
-                  <li><a href="#">Privacy & Terms</a></li>
+                  <li><a href="help.php">Help</a></li>
+                  <li><a href="Terms_and_conditions.php">Privacy & Terms</a></li>
                </div>
             </footer>
          </main>

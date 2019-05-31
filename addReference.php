@@ -29,9 +29,8 @@
       <link rel="stylesheet" href="mdl/material.cyan-light_blue.min.css">
       <!-- Custom css -->
       <link rel="stylesheet" href="mdl/styles.css">
-      <link rel="stylesheet" href="mdl/jquery/jquery-ui-1.10.2.css">
       <!-- Font Awesome css -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="mdl/font-awesome.min.css">
       <!-- BOOTSTRAP  -->
       <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
    </head>
@@ -89,7 +88,7 @@
                <a class="mdl-navigation__link" href="Enquiry_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Enquiry</a>
                <a class="mdl-navigation__link" href="Addmission_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person_add</i>Addmission</a>
                <a class="mdl-navigation__link" href="Staff_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>Staff Details</a>
-               <a class="mdl-navigation__link" href="Branches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">location_city</i>Branches Details</a>
+               <a class="mdl-navigation__link" href="Coursees_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">location_city</i>Coursees Details</a>
                <a class="mdl-navigation__link" href="Batches_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">school</i>Batches Details</a>
                <a class="mdl-navigation__link" href="Cource_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>Cource Details</a>
                <a class="mdl-navigation__link" href="Finance_Details.php"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">money</i>Finance Details</a>
@@ -101,57 +100,74 @@
 		 <!-- Side Bar Ends here  -->
 		 <!-- content outer body Start here  -->
          <main class="mdl-layout__content mdl-color--grey-100">
-            <div class="mdl-grid demo-content">
+            <div class="mdl-grid demo-content ">
                <!-- Start  -->
-			<div class="mdl-card mdl-shadow--2dp">
-			<div class="mdl-card__title">
-				<h2 class="mdl-card__title-text">Add Batches</h2>
-			</div>
-			<div class="mdl-card__actions mdl-card--border">
-				<form action="#">
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Name">
-						<label class="mdl-textfield__label" for="batch_Name">Batch Name</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="batch_Con">
-						<label class="mdl-textfield__label" for="batch_Con">Batch Conductor</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "-Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "Time">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch End Time</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-						<label class="mdl-textfield__label" for="sample4">Batch Fees</label>
-						<span class="mdl-textfield__error">Input is not Valid!</span>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-1">
-						<label class="mdl-textfield__label" for="datepicker-1">Batch Start Date</label>
-					</div>
-					<br>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text"  id = "datepicker-2">
-						<label class="mdl-textfield__label" for="datepicker-2">Batch End Date</label>
-					</div>
-					<br>
-                    <div>
-                        <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
-                        <button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
-                    </div>
-				</form>
-			</div>
-			</div>
+               <div class="mdl-card mdl-shadow--2dp container-login">
+                  <div class="mdl-card__title">
+                     <h2 class="mdl-card__title-text">New Reference</h2>
+                  </div>
+                  <div class="mdl-card__supporting-text">
+                     <form action="#">
+               <!-- Start  -->
+               <html lang="en" class="mdl-js">
+   <head>
+      <meta charset="UTF-8">
+      <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+      <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <style>
+         .mdl-button--file input {
+         cursor: pointer;
+         height: 100%;
+         right: 0;
+         opacity: 0;
+         position: absolute;
+         top: 0;
+         width: 300px;
+         z-index: 4;
+         }
+         .mdl-textfield--file .mdl-textfield__input {
+         box-sizing: border-box;
+         width: calc(100% - 32px);
+         }
+         .mdl-textfield--file .mdl-button--file {
+         right: 0;
+         }
+      </style>
+      <script>
+         window.console = window.console || function(t) {};
+      </script>
+      <script>
+         if (document.location.search.match(/type=embed/gi)) {
+           window.parent.postMessage("resize", "*");
+         }
+      </script>
+   </head>
+   <body translate="no">
+      <form>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
+            <input class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">Ref Name</label>
+         </div><br>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-upgraded" data-upgraded=",MaterialTextfield">
+            <input class="mdl-textfield__input" type="text">
+            <label class="mdl-textfield__label">Ref Contact No</label>
+         </div><br>
+		 		 <div>
+                           <button id="save" type="submit" class="mdl-js-button mdl-button--raised mdl-button--accent">Save</button>
+                           <button id="reset" type="reset" class="mdl-js-button mdl-button--raised mdl-button--accent">Reset</button>
+                        </div>
+      </form>
+      <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+      <script src="https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js"></script>
+   </body>
+</html>
+               <!-- End  -->
+                     </form>
+                  </div>
+               </div>
+
                <!-- End  -->
             </div>
             <footer class="mdl-mini-footer">
@@ -173,18 +189,5 @@
       <script src="mdl/material.min.js"></script>
 	  <!-- Jquery js script -->
       <script src="mdl/jquery.min.js"></script>
-      <script src="mdl/Custom.js"></script>
-      <script src="mdl/jquery/jquery-1.10.2.js"></script>
-      <script src="mdl/jquery/jquery-ui-1.10.2.js"></script>
-		<script>
-         $(function() {
-            $( "#datepicker-1" ).datepicker({gotoCurrent: true});
-            $( "#datepicker-2" ).datepicker();
-			$("TD").dclick(function {
-				$("TD").attr("contentEditable","true");
-				$("TD").click();
-			});
-         });
-      </script>
    </body>
 </html>

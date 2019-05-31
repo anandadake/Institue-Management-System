@@ -27,100 +27,56 @@
       <link rel="stylesheet" href="mdl/font-awesome.min.css">
       <!-- BOOTSTRAP  -->
       <link rel="stylesheet" href="mdl/bootstrap340/3.4.0.bootstrap.min.css">
-	  <style>
-	  .container{
-height: 100%;
-align-content: center;
-}
-
-.card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
-}
-
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #FFC312;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
-.card-header h3{
-color: white;
-}
-
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
-}
-
-.input-group-prepend span{
-width: 50px;
-background-color: #FFC312;
-color: black;
-border:0 !important;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
-}
-
-.login_btn:hover{
-color: black;
-background-color: white;
-}
-
-.links{
-color: white;
-}
-
-.links a{
-margin-left: 4px;
-}
-</style>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <style>
+         .btn{outline: none !important;border: none;}
+         .btn-primary{background: #57b846!important;}
+         .btn-primary:hover{background: #5ff850!important;}
+      </style>
    </head>
-<body bgimage >
-		<div class="card">
-			<div class="card-header">
-				<h3>Sign In</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
-			</div>
-
-		</div>
-</body>
+   <body>
+      <div bgimage class="container-login">
+         <div class="wrap-login">
+            <form class="login-form" METHOD="POST" action="loginBackEnd.php">
+               <span class="login-form-title">Member Login</span>
+               <div class="login-wrap">
+                  <div class="input-group">
+                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                     <input type="text" id="userName" name="userName" class="form-control" placeholder="Username" required autofocus value=<?php if(isset($_COOKIE["userName"])){echo $_COOKIE["userName"];} ?> >
+                  </div>
+                  <div class="input-group">
+                     <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+                     <input type="password" id="pass" name="userPassword" class="form-control" placeholder="Password" required value=<?php if(isset($_COOKIE["userPassword"])){echo $_COOKIE["userPassword"];} ?> >
+                     <span class="input-group-addon"><i id="eye" onclick="showPassword()" class="glyphicon glyphicon-eye-close" aria-hidden="true"></i></span>
+                  </div>
+                  <label class="checkbox">
+                  <input type="checkbox" name="remember-me" value="remember-me" checked /> Remember me
+                  <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
+                  </label>
+                  <button type="submit" id="login" name="login"  class="btn btn-primary btn-lg btn-block" disabled="true" >Login</button>
+                  <button onclick="window.location.href = 'SignUp.php'" class="btn btn-info btn-lg btn-block" >Signup</button>
+               </div>
+            </form>
+         </div>
+      </div>
+      <!-- Material Design Lite js script -->
+      <script src="mdl/material.min.js"></script>
+      <!-- Jquery js script -->
+      <script src="mdl/jquery.min.js"></script>
+      <script>
+         function showPassword(){
+         var x = document.getElementById("pass");
+         if (x.type === "password") {
+             x.type = "text";
+			 $("#eye").attr("class","glyphicon glyphicon-eye-open");
+         } else {
+             x.type = "password";
+			 $("#eye").attr("class","glyphicon glyphicon-eye-close");
+         }
+         }
+         $('#pass').on('input', function(){
+         var userName = document.getElementById("#userName");
+         $("#login").attr("disabled",false);
+         });
+      </script>
+   </body>
 </html>
